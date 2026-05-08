@@ -1,38 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --text: #0f0f23;
-  --text-muted: #6b7280;
-  --bg: #f7f8fc;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --bg: #0a0a0f;
+  --bg-card: #111118;
+  --bg-card-hover: #16161f;
+  --border: #1e1e2a;
+  --accent: #6366f1;
+  --accent-dim: #4f46e5;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Gradient text variants */
-.gradient-purple {
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.gradient-sunset {
-  background: linear-gradient(135deg, #f59e0b, #ef4444, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.gradient-ocean {
-  background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.gradient-warm {
-  background: linear-gradient(135deg, #f97316, #eab308);
+/* Accent utilities */
+.text-accent { color: var(--accent); }
+.text-muted { color: var(--text-muted); }
+.text-dim { color: var(--text-dim); }
+.border-card { border-color: var(--border); }
+.bg-card { background: var(--bg-card); }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -40,91 +36,82 @@ body {
 
 /* Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, #6366f1, #a855f7);
+  background: var(--accent);
   color: white;
-  font-weight: 600;
-  padding: 12px 32px;
-  border-radius: 10px;
+  font-weight: 500;
+  padding: 10px 28px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+  transition: all 0.15s;
+  font-size: 14px;
 }
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  background: var(--accent-dim);
 }
 
 .btn-secondary {
-  background: white;
-  color: #374151;
-  font-weight: 600;
-  padding: 12px 32px;
-  border-radius: 10px;
-  border: 1.5px solid #e5e7eb;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 10px 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.15s;
+  font-size: 14px;
 }
 .btn-secondary:hover {
-  border-color: #d1d5db;
-  background: #f9fafb;
+  border-color: #334155;
+  color: var(--text);
 }
 
 /* Cards */
 .card {
-  background: white;
-  border-radius: 16px;
+  background: var(--bg-card);
+  border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: all 0.3s;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
 }
 .card:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
-}
-
-/* Colorful tag badges */
-.tag-purple { background: #eef2ff; color: #4f46e5; }
-.tag-pink { background: #fdf2f8; color: #db2777; }
-.tag-amber { background: #fffbeb; color: #d97706; }
-.tag-cyan { background: #ecfeff; color: #0891b2; }
-.tag-emerald { background: #ecfdf5; color: #059669; }
-.tag-rose { background: #fff1f2; color: #e11d48; }
-
-/* Glow effects */
-.glow {
-  position: relative;
-}
-.glow::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b);
-  filter: blur(60px);
-  opacity: 0.08;
-  z-index: -1;
-}
-
-/* Bg gradient sections */
-.section-gradient-1 {
-  background: linear-gradient(180deg, #f7f8fc 0%, #eef2ff 50%, #fdf2f8 100%);
-}
-.section-gradient-2 {
-  background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 100%);
+  background: var(--bg-card-hover);
+  border-color: #2a2a3a;
 }
 
 /* Input fields */
 .input-field {
   width: 100%;
-  padding: 12px 16px;
-  border-radius: 10px;
-  border: 1.5px solid #e5e7eb;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
   outline: none;
-  transition: all 0.2s;
+  transition: all 0.15s;
   font-size: 14px;
 }
+.input-field::placeholder {
+  color: var(--text-dim);
+}
 .input-field:focus {
-  border-color: #a855f7;
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Grid lines decoration */
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glow dot */
+.glow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
 }
