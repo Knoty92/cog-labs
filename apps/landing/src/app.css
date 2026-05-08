@@ -1,12 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --accent: #667eea;
-  --accent-dark: #5a6fd6;
-  --accent-gradient: linear-gradient(135deg, #667eea, #764ba2);
-  --bg: #f8f9fa;
-  --text: #1a1a2e;
+  --text: #0f0f23;
   --text-muted: #6b7280;
+  --bg: #f7f8fc;
 }
 
 body {
@@ -15,35 +12,119 @@ body {
   color: var(--text);
 }
 
-.gradient-text {
-  background: var(--accent-gradient);
+/* Gradient text variants */
+.gradient-purple {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-sunset {
+  background: linear-gradient(135deg, #f59e0b, #ef4444, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-ocean {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-warm {
+  background: linear-gradient(135deg, #f97316, #eab308);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.gradient-bg {
-  background: var(--accent-gradient);
-}
-
+/* Buttons */
 .btn-primary {
-  background: var(--accent-gradient);
+  background: linear-gradient(135deg, #6366f1, #a855f7);
   color: white;
   font-weight: 600;
   padding: 12px 32px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
 }
 .btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
+.btn-secondary {
+  background: white;
+  color: #374151;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+/* Cards */
 .card {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 24px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* Colorful tag badges */
+.tag-purple { background: #eef2ff; color: #4f46e5; }
+.tag-pink { background: #fdf2f8; color: #db2777; }
+.tag-amber { background: #fffbeb; color: #d97706; }
+.tag-cyan { background: #ecfeff; color: #0891b2; }
+.tag-emerald { background: #ecfdf5; color: #059669; }
+.tag-rose { background: #fff1f2; color: #e11d48; }
+
+/* Glow effects */
+.glow {
+  position: relative;
+}
+.glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b);
+  filter: blur(60px);
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* Bg gradient sections */
+.section-gradient-1 {
+  background: linear-gradient(180deg, #f7f8fc 0%, #eef2ff 50%, #fdf2f8 100%);
+}
+.section-gradient-2 {
+  background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 100%);
+}
+
+/* Input fields */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  outline: none;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+.input-field:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
 }
