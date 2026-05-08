@@ -1,0 +1,13 @@
+{
+  "name": "cog-labs",
+  "version": "0.1.0",
+  "private": true,
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "@parcel/watcher"]
+  },
+  "scripts": {
+    "dev": "pnpm --filter landing dev",
+    "build": "pnpm --filter landing build",
+    "start": "pnpm --filter landing start"
+  }
+}

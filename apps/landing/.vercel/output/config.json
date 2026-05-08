@@ -1,0 +1,23 @@
+{
+  "version": 3,
+  "overrides": {
+    "index.html": {
+      "path": ""
+    }
+  },
+  "routes": [
+    {
+      "headers": {
+        "cache-control": "public, immutable, max-age=31536000"
+      },
+      "src": "/_build/assets/(.*)"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/__fallback"
+    }
+  ]
+}
